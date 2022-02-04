@@ -14,5 +14,11 @@
             this.Posicao = null;
             this.QtdMovimento = 0;
         }
+
+        public void incrementarQtdMov()
+        {
+            QtdMovimento++;
+        }
+
     }
 }
