@@ -46,6 +46,15 @@ namespace xadrez
                 throw new TabuleiroExeption("A peça de orgem está bloqueada!");
             }
         }
+        public void validarPosicaoDestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMoverPara(destino))
+            {
+                throw new TabuleiroExeption("Posição de destino invalida!");
+            }
+        }
+
+
         private void mudaJogador()
         {
             if(JogadorAtual == Cor.Branca)
