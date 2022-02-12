@@ -56,7 +56,7 @@ namespace xadrez
             if (estaEmXeque(JogadorAtual))
             {
                 desFazMovimento(origem, destino, pecaCapturada);
-                throw new TabuleiroExeption("Voce não pode se colocra em cheque.");
+                throw new TabuleiroExeption("Voce não pode se colocar em cheque.");
             }
             if (estaEmXeque(adversaria(JogadorAtual)))
             {
@@ -118,7 +118,7 @@ namespace xadrez
         public HashSet<Peca> pecasEmJogo(Cor cor)
         {
             HashSet<Peca> aux = new HashSet<Peca>();
-            foreach (Peca x in capturadas)
+            foreach (Peca x in pecas)
             {
                 if (x.Cor == cor)
                 {
