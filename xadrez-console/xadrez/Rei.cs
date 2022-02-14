@@ -81,7 +81,7 @@ namespace xadrez
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            //Especiais
+            // #Especiais
             if(QtdMovimento == 0 && !Partida.xeque)
             {   // Roque pequeno
                 Posicao posT1 = new Posicao(Posicao.Linha, Posicao.Coluna + 3);

@@ -34,8 +34,26 @@ namespace xadrez
             {
                 capturadas.Add(pecaCapturada);
             }
+            // #Especiais
+            // Roque pequeno
+            if(p is Rei && destino.Coluna == origem.Coluna + 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna + 3);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca t = tab.retirarPeca(origemT);
+                t.incrementarQtdMov();
+                tab.colocarPeca(t, destinoT);
+            }
+            // Roque grande
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna - 4);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna - 1);
+                Peca t = tab.retirarPeca(origemT);
+                t.incrementarQtdMov();
+                tab.colocarPeca(t, destinoT);
+            }
             return pecaCapturada;
-
         }
         public void desFazMovimento(Posicao origem, Posicao destino, Peca pecaCapturada)
         {
@@ -47,6 +65,28 @@ namespace xadrez
                 capturadas.Remove(pecaCapturada);
             }
             tab.colocarPeca(p, origem);
+
+            // #Especiais
+            // Roque pequeno
+            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna + 3);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca t = tab.retirarPeca(destinoT);
+                t.decrementarQtdMov();
+                tab.colocarPeca(t, origemT);
+            }
+            // Roque grande
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna - 4);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna - 1);
+                Peca t = tab.retirarPeca(destinoT);
+                t.decrementarQtdMov();
+                tab.colocarPeca(t, origemT);
+            }
+
+
         }
   
         public void realizaJogada(Posicao origem, Posicao destino)
