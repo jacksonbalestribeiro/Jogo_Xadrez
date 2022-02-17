@@ -5,7 +5,6 @@ namespace xadrez
 {
     class PartidaDeXadrez
     {
-        private Peca vulneravelEnPassant;
         private HashSet<Peca> pecas;
         private HashSet<Peca> capturadas;
         public Tabuleiro tab { get; private set; }
@@ -13,6 +12,7 @@ namespace xadrez
         public Cor JogadorAtual { get; private set; }
         public bool terminada { get; private set; }
         public bool xeque { get; private set; }
+        public Peca vulneravelEnPassant { get; private set; }
 
         public PartidaDeXadrez()
         {
