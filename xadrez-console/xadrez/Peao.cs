@@ -18,7 +18,7 @@ namespace xadrez
         private bool existeInimigo(Posicao pos)
         {
             Peca p = Tab.peca(pos);
-            return p != null || p.Cor != Cor;
+            return p != null && p.Cor != Cor;
         }
 
         private bool livre(Posicao pos)
@@ -62,12 +62,12 @@ namespace xadrez
                     Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
                     if (Tab.posicaoValida(esquerda) && existeInimigo(esquerda) && Tab.peca(esquerda) == partida.vulneravelEnPassant)
                     {
-                        mat[esquerda.Linha, esquerda.Coluna] = true;
+                        mat[esquerda.Linha - 1 , esquerda.Coluna] = true;
                     }
                     Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
                     if (Tab.posicaoValida(direita) && existeInimigo(direita) && Tab.peca(direita) == partida.vulneravelEnPassant)
                     {
-                        mat[direita.Linha, direita.Coluna] = true;
+                        mat[direita.Linha - 1, direita.Coluna] = true;
                     }
                 }
 
@@ -104,12 +104,12 @@ namespace xadrez
                     Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
                     if (Tab.posicaoValida(esquerda) && existeInimigo(esquerda) && Tab.peca(esquerda) == partida.vulneravelEnPassant)
                     {
-                        mat[esquerda.Linha, esquerda.Coluna] = true;
+                        mat[esquerda.Linha + 1, esquerda.Coluna] = true;
                     }
                     Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
                     if (Tab.posicaoValida(direita) && existeInimigo(direita) && Tab.peca(direita) == partida.vulneravelEnPassant)
                     {
-                        mat[direita.Linha, direita.Coluna] = true;
+                        mat[direita.Linha + 1, direita.Coluna] = true;
                     }
                 }
 
